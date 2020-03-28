@@ -24,9 +24,9 @@ RUN yum -y install openssl-devel
 RUN curl -LO https://github.com/Kitware/CMake/releases/download/v3.17.0/cmake-3.17.0.tar.gz
 RUN tar zxf cmake-3.17.0.tar.gz
 WORKDIR cmake-3.17.0
-RUN ./bootstrap && make && sudo make install
+RUN ./bootstrap && make && make install
 WORKDIR /root/tmp
 RUN rm -rf ./*
 
-WORKDIR /root/
+WORKDIR /root
 CMD ["/bin/bash", "-l"]
